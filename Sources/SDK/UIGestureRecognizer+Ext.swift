@@ -52,5 +52,6 @@ extension UIGestureRecognizer {
         guard let targetProperty = targetProperty, let actionProperty = actionProperty else { return }
         targetProperty.performSelector(onMainThread: actionProperty, with: self.state, waitUntilDone: false)
         NotificationCenter.default.post(name: NSNotification.Name("trackEvent"), object: nil, userInfo: ["event": "interacted with: \(self.description)"])
+        
     }
 }
