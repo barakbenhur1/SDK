@@ -50,7 +50,7 @@ extension UIGestureRecognizer {
     
     @objc dynamic func swizzled_action() {
         guard let targetProperty = targetProperty, let actionProperty = actionProperty else { return }
-        targetProperty.performSelector(onMainThread: actionProperty, with: nil, waitUntilDone: false)
+        targetProperty.performSelector(onMainThread: actionProperty, with: self, waitUntilDone: false)
         NotificationCenter.default.post(name: NSNotification.Name("trackEvent"), object: nil, userInfo: ["event": "interacted with: \(self.description)"])
     }
 }
